@@ -32,12 +32,14 @@ public class Solution {
                     tmp.add(num[end]);
                     result.add(tmp);
                     int Middle = middle;
+                    //跳过与先前重复的值
                     while (middle < length-1 && num[middle] == num[Middle])
                         ++middle;
                     middle = (middle == length-1) ? middle : middle-1;
                 }
             }
             int Start = start;
+            //跳过与先前重复的值
             while (start < length-2 && num[start] == num[Start])
                 ++start;
             start = (start == length-2) ? start : start - 1;
