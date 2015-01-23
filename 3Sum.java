@@ -57,7 +57,6 @@ public class Solution {
                 int sum = num[start] + num[middle] + num[end];
                 if(sum == 0){
                     answer.add(new ArrayList<Integer>(Arrays.asList(num[start],num[middle],num[end])));
-                    //update j and k. skip j and k that has same value with previous one.
                     do{
                         middle++;
                     }while(middle < end && num[middle-1]==num[middle]);
@@ -66,19 +65,16 @@ public class Solution {
                     }while(middle < end && num[end+1]==num[end]);
                 }
                 else if(sum > 0){
-                    //update k, skip k that has same value with previous one
                     do{
                         end--;
                     }while(middle < end && num[end+1]==num[end]);
                 }
                 else{
-                    //update j, skip j that has same value with previous one
                     do{
                         middle++;
                     }while(middle < end && num[middle-1]==num[middle]);
                 }
             }
-            // update i. skip i that has same value with previous one
             do{
                 start++;
             }while(start<length-2 && num[start-1]==num[start]);
