@@ -6,9 +6,8 @@ The brackets must close in the correct order, "()" and "()[]{}" are all valid bu
 public class Solution {
     public boolean isValid(String s) {
         Stack stack = new Stack();
-        StringBuilder stringBuilder = new StringBuilder(s);
-        for (int i = 0; i < stringBuilder.length(); ++i){
-            char tmp = stringBuilder.charAt(i);
+        for (int i = 0; i < s.length(); ++i){
+            char tmp = s.charAt(i);
             if (tmp == '(' || tmp == '[' || tmp == '{')
                 stack.push(tmp);
             else {
