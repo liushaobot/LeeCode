@@ -4,6 +4,7 @@
 For example, given n = 3, a solution set is:
 
 "((()))", "(()())", "(())()", "()(())", "()()()" 
+有两个集合，各有n个'('、')'，从中取元素，但保证任何时候取得'('的个数要比')'的个数大。
 */
 
 public class Solution {
