@@ -59,6 +59,7 @@ public class Solution {
     }
 }
 
+//https://oj.leetcode.com/discuss/25518/13-lines-in-java
 public class Solution2 {
     public ListNode mergeKLists(List<ListNode> lists) {
         Queue<ListNode> heap = new PriorityQueue(new Comparator<ListNode>(){
