@@ -12,10 +12,10 @@ public class Solution {
             return (dividend == Integer.MIN_VALUE) ? 1 : 0;
         //
         boolean flag = (dividend < 0) ^ (divisor < 0);//被除数与除数是否异号
-        dividend = -Math.abs(dividend);
+        dividend = -Math.abs(dividend);//因为负数表示范围比正数大一个，所以使用负数
         divisor = - Math.abs(divisor);
-        int[] num = new int[40];
-        int[] multiple = new int[40];
+        int[] num = new int[40];//保存除数divisor的各个倍数数值
+        int[] multiple = new int[40];//保存相应的倍数
         num[1] = divisor;
         multiple[1] = 1;
         for (int i = 2; i < 32 && num[i-1] < 0; ++i){
