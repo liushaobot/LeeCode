@@ -12,7 +12,7 @@ public class Solution {
     int max=0;
     int from = -1;
     char[] S = s.toCharArray();
-    for(int j=0;j<s.length();j++){
+    for(int j=0;j<S.length;j++){
         if(S[j]=='(') stack.push(j);            
         else {//S[j] == ')'
             if (stack.isEmpty()) from=j;//from指向最右边未匹配的')'
