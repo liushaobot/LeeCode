@@ -10,7 +10,7 @@ return 10.
 
 如果确定了长方形的左端点L和右端点R，那么最大可能的高度就是min{h[i]|L <= i < R}。
 L[i] = (j <= i并且h[j-1] < h[i]的最大的j)
-R[i] = (j > i并且h[j] > h[i]的最小的j)
+R[i] = (j > i并且h[j] < h[i]的最小的j)
 */
 
 public class Solution {
