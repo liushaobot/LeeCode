@@ -14,7 +14,7 @@ R[i] = (j > i并且h[j] > h[i]的最小的j)
 */
 
 public class Solution {
-    public int largestRectangleArea(int[] height) {
+    public int largestRectangleArea1(int[] height) {
         int length = height.length;
         int[] L = new int[length];
         int[] R = new int[length];
@@ -40,5 +40,23 @@ public class Solution {
             ans = Math.max(ans, height[i] * (R[i] - L[i]));
         }
         return ans;
+    }
+    
+    public int largestRectangleArea2(int[] height) {
+     //http://www.cnblogs.com/lichen782/p/leetcode_Largest_Rectangle_in_Histogram.html
+        Stack<Integer> stack = new Stack<Integer>();
+        int i = 0;
+        int maxArea = 0;
+        int[] h = new int[height.length + 1];
+        h = Arrays.copyOf(height, height.length + 1);
+        while(i < h.length){
+            if(stack.isEmpty() || h[stack.peek()] <= h[i]){
+                stack.push(i++);
+            }else {
+                int t = stack.pop();
+                maxArea = Math.max(maxArea, h[t] * (stack.isEmpty() ? i : i - stack.peek() - 1));
+            }
+        }
+        return maxArea;
     }
 }
