@@ -7,7 +7,7 @@ the contiguous subarray [2,3] has the largest product = 6.
 
 状态转移方程：Max[i] = max(data[i], Max[i-1]*data[i], Min[i-1]*data[i]),
 
-              Min[i] =  min(data[i], Max[i-1]*data[i],  Min[i-1]*data[i]).
+              Min[i] = min(data[i], Max[i-1]*data[i],  Min[i-1]*data[i]).
 */
 /**
  * Created by Shaobo on 2015/3/31.
