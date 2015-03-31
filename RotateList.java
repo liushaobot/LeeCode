@@ -18,7 +18,7 @@ return 4->5->1->2->3->NULL.
  */
 public class Solution {
     public ListNode rotateRight(ListNode head, int k) {
-        if (k == 0 || head == null || head.next == null)
+        if (k == 0 || head == null || head.next == null)//特殊情况
             return head;
         ListNode p = head, q = head;
         int length = 0;
@@ -26,7 +26,7 @@ public class Solution {
             ++length;
             q = q.next;
         }
-        if (k % length == 0)
+        if (k % length == 0)//特殊情况
             return head;
         k = k % length;
         q = head;
