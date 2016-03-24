@@ -20,6 +20,18 @@ public class Solution {
         return nums.length - sum;
     }
     
+    //可转化为求只出现一次的数字的问题
+    public int missingNumber(int[] nums) {
+        int ans = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            ans ^= nums[i];
+        }
+        for (int i = 0; i<= nums.length; ++i) {
+            ans ^= i;
+        }
+        return ans;
+    }
+    
     public int missingNumber(int[] nums) {//BY MYSELF
         int len = nums.length;
 
