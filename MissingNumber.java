@@ -15,7 +15,7 @@ public class Solution {
     public int missingNumber(int[] nums) {
         int len = nums.length;
 
-        if (len == 1){
+        if (len == 1){//特例
             return 1-nums[0];
         }
 
@@ -35,6 +35,6 @@ public class Solution {
                 break;
             }
         }
-       return (ans == -1) ? len : ans;
+       return (ans == -1) ? len : ans;//ans == -1表示输入数组为0到n-1的有序数组
     }
 }
