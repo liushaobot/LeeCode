@@ -38,8 +38,8 @@ public class Solution {
         int fast = 0;
         // 找到快慢指针相遇的地方
         do{
-            slow = nums[slow];
-            fast = nums[nums[fast]];
+            slow = nums[slow];//慢指针每次走一步
+            fast = nums[nums[fast]];//快指针每次走两步
         } while(slow != fast);
         int find = 0;
         // 用一个新指针从头开始，直到和慢指针相遇
