@@ -19,7 +19,7 @@ public class Solution {
         return nums.length - sum;
     }
     
-    public int missingNumber(int[] nums) {BY MYSELF
+    public int missingNumber(int[] nums) {//BY MYSELF
         int len = nums.length;
 
         if (len == 1){//特例
