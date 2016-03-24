@@ -12,7 +12,14 @@ Your algorithm should run in linear runtime complexity. Could you implement it u
  * Created by shaobo on 2016/3/24.
  */
 public class Solution {
-    public int missingNumber(int[] nums) {
+    public int missingNumber(int[] nums) {//PERFECT
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++)
+            sum += nums[i] - i;
+        return nums.length - sum;
+    }
+    
+    public int missingNumber(int[] nums) {BY MYSELF
         int len = nums.length;
 
         if (len == 1){//特例
