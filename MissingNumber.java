@@ -12,6 +12,7 @@ Your algorithm should run in linear runtime complexity. Could you implement it u
  * Created by shaobo on 2016/3/24.
  */
 public class Solution {
+    //https://leetcode.com/discuss/87242/java-solution-time-o-n-space-o-1-no-xor-no-gauss-math-method
     public int missingNumber(int[] nums) {//PERFECT
         int sum = 0;
         for (int i = 0; i < nums.length; i++)
