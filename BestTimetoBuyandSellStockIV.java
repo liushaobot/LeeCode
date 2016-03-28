@@ -28,11 +28,11 @@ public class Solution {
             int[] sell = new int[k];
             Arrays.fill(buy, Integer.MIN_VALUE);
 
-            for (int i = 0; i < prices.length; ++i) {
+            for (int price : prices) {//foreach loop
                 int tmp = 0;
                 for (int j = 0; j < k; ++j) {
-                    if (buy[j] < tmp-prices[i]) buy[j] = tmp-prices[i];
-                    if (sell[j] < buy[j]+prices[i]) sell[j] = buy[j] + prices[i];
+                    if (buy[j] < tmp-price) buy[j] = tmp-price;
+                    if (sell[j] < buy[j]+price) sell[j] = buy[j] + price;
                     tmp = sell[j];
                 }
             }
