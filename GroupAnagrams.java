@@ -37,6 +37,7 @@ public class Solution {
             Collections.sort(list);
             result.add(list);
         }
+        hashMap.clear();
 
         return result;
     }
