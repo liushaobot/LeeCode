@@ -3,6 +3,27 @@
  */
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
+        return findKthLargest(nums, k, 0, nums.length-1);
+    }
+
+    public int findKthLargest(int[] nums, int k, int from, int to) {
+        int From = from, To = to;
+        int pivot = nums[from];
+        while (from < to) {
+            while (from < to && nums[to] <= pivot) --to;
+            nums[from] = nums[to];
+            while (from < to && nums[from] >= pivot) ++from;
+            nums[to] = nums[from];
+        }
+        nums[from] = pivot;
+        if (from == k-1)
+            return nums[from];
+        else if (from > k-1)
+            return findKthLargest(nums, k, From, from-1);
+        else
+            return findKthLargest(nums, k, from+1, To);
+    }
+    public int findKthLargest1(int[] nums, int k) {
         int[] heap = new int[k];
         for (int i = 0; i < k; ++i) {
             heap[i] = nums[i];
