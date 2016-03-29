@@ -22,9 +22,6 @@ Then reason we scan the whole matrix is that the maximum value may appear in any
 https://leetcode.com/discuss/52670/solution-based-maximum-rectangle-histogram-with-explanation
 */
 
-/**
- * Created by shaobo on 2016/3/29.
- */
 public class Solution {
     public int maximalRectangle(char[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return 0;
