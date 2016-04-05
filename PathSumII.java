@@ -32,26 +32,26 @@ public class Solution {
             return  new ArrayList<List<Integer>>();
 
         List<List<Integer>> result = new ArrayList<List<Integer>>();
-        Stack<TreeNode> path = new Stack<TreeNode>();
+        Stack<Integer> path = new Stack<Integer>();
         pathSum(root, sum, result, path);
 
         return result;
     }
 
-    private void pathSum(TreeNode root, int sum, List<List<Integer>> result, Stack<TreeNode> path) {
+    private void pathSum(TreeNode root, int sum, List<List<Integer>> result, Stack<Integer> path) {
         if (root.left == null && root.right == null) {
             if (sum == root.val) {
-                Iterator<TreeNode> iterator = path.iterator();
+                Iterator<Integer> iterator = path.iterator();
                 List<Integer> list = new ArrayList<Integer>();
                 while (iterator.hasNext()) {
-                    list.add(iterator.next().val);
+                    list.add(iterator.next());
                 }
                 list.add(root.val);
                 result.add(list);
             }
             return;
         }
-        path.push(root);
+        path.push(root.val);
         if (root.left != null) {
             pathSum(root.left, sum-root.val, result, path);
         }
