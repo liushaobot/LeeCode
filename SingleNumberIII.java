@@ -10,7 +10,7 @@ public class Solution {
 
         //int bit = 0;
         //while ((sum&(1<<bit)) == 0) ++bit;
-        int bit = (sum&(sum-1)) ^ sum;
+        int bit = sum&(~sum+1);
 
         int[] result = new int[2];
         for (int num : nums) {
