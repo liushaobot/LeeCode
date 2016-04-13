@@ -19,25 +19,23 @@ public class Solution {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         if (candidates == null || candidates.length == 0)
             return new ArrayList<List<Integer>>();
-        HashSet<List<Integer>> hashSet = new HashSet<List<Integer>>();
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
         List<Integer> combination = new ArrayList<Integer>();
         Arrays.sort(candidates);
-        combinationSum(candidates, target, hashSet, combination, 0);
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
-        Iterator<List<Integer>> iterator = hashSet.iterator();
-        while (iterator.hasNext()) {
-            result.add(iterator.next());
-        }
+        combinationSum(candidates, target, result, combination, 0);
+
         return result;
     }
 
-    private void combinationSum(int[] candidates, int target, HashSet<List<Integer>> hashSet, List<Integer> combination, int begin){
+    private void combinationSum(int[] candidates, int target, List<List<Integer>> result, List<Integer> combination, int begin){
         if (target == 0){
-            hashSet.add(new ArrayList<Integer>(combination));
+            result.add(new ArrayList<Integer>(combination));
         } else {
             for (int i = begin; i != candidates.length && target >= candidates[i]; ++i){
+                if (i!=begin && candidates[i]==candidates[i-1])
+                    continue;
                 combination.add(candidates[i]);
-                combinationSum(candidates, target-candidates[i], hashSet, combination, i+1);
+                combinationSum(candidates, target-candidates[i], result, combination, i+1);
                 combination.remove(combination.size()-1);
             }
         }
