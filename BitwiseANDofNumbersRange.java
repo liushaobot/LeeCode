@@ -9,13 +9,17 @@ public class Solution {
         if(m == 0){
             return 0;
         }
-        int moveFactor = 1;
+        //int moveFactor = 1;
+        int moveFactor = 0;
         while(m != n){
             m >>= 1;
             n >>= 1;
-            moveFactor <<= 1;
+            //moveFactor <<= 1;
+            ++moveFactor;
         }
-        return m * moveFactor;
+        //return m * moveFactor;
+        return m << moveFactor;
+        
         /*
         int t = (int) Math.ceil(Math.log(n-m+1)/Math.log(2));
         return m&n >> t << t;
