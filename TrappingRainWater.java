@@ -38,7 +38,7 @@ public class Solution {
         }
         return water;
     }
-    public int trap2(int[] height) {//Time Limit Exceeded
+    public int trap2(int[] height) {//2ms
         int left = 0;
         int right = height.length-1;
         int water = 0;
