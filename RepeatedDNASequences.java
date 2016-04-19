@@ -34,6 +34,7 @@ public class Solution {
         }
         return lists;
     }
+    
     public List<String> findRepeatedDnaSequences1(String s) {//by myself
         List<String> lists = new ArrayList<String>();
 
@@ -59,5 +60,19 @@ public class Solution {
         }
 
         return lists;
+    }
+    
+    public List<String> findRepeatedDnaSequences2(String s) {
+        if (s == null || s.length() <= 10)
+            return new ArrayList<String>();
+        HashSet<String> set = new HashSet<String>();
+        HashSet<String> repeated = new HashSet<String>();
+        for (int i = 0; i < s.length()-9; ++i) {
+            String subString = s.substring(i, i + 10);
+            if (!set.add(subString)) {
+                repeated.add(subString);
+            }
+        }
+        return new ArrayList<String>(repeated);
     }
 }
