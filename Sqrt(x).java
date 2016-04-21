@@ -22,4 +22,13 @@ public class Solution {
         }
         return mid;
     }
+    
+    public int mySqrt2(int x) {
+        if(x <= 1) return x;
+
+        long r = x/2;
+        while (r*r > x)
+            r = (r + x/r) / 2;
+        return (int)r;
+    }
 }
