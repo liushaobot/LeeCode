@@ -24,6 +24,7 @@ public class Solution {
     }
     
     public int mySqrt2(int x) {
+        //https://leetcode.com/discuss/58631/3-4-short-lines-integer-newton-every-language
         if(x <= 1) return x;
 
         long r = x/2;
