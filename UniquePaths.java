@@ -25,4 +25,14 @@ public class Solution {
 
         return dp[m-1][n-1];
     }
+    
+    public int uniquePaths2(int m, int n) {
+        // Compute C((m-1)+(n-1), (m-1))
+        m--; n--;
+        int mn = m + n;
+        double ans = 1;
+        for(int i=0;i<m;i++)
+            ans = ans * ((double)(mn - i) / (m-i));
+        return (int)Math.round(ans);
+    }
 }
