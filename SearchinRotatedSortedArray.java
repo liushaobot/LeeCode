@@ -90,7 +90,7 @@ public class Solution {
         return (nums[start]==target) ? start : ((nums[end]==target) ? end : -1);
     }
     
-    public int search1(int[] A, int target) {//very slow
+    public int search1(int[] A, int target) {//1ms
         /*
         特殊案例
         */
