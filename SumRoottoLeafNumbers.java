@@ -26,10 +26,28 @@ Return the sum = 12 + 13 = 25.
  * }
  */
 public class Solution {
-    public int sumNumbers(TreeNode root) {
+    public int sumNumbers1(TreeNode root) {
+        if (root == null) return 0;
+        return sumNumbers1(root, 0);
+    }
+
+    public int sumNumbers1(TreeNode root, int num) {
+        if (root.left == null && root.right == null) {
+            return num*10+root.val;
+        } else {
+            int val = 0;
+            if (root.left != null)
+                val += sumNumbers1(root.left, 10*num+root.val);
+            if (root.right != null)
+                val += sumNumbers1(root.right, 10*num+root.val);
+            return val;
+        }
+    }
+    ////////////////////////////////////////////////////////////////////////
+    public int sumNumbers2(TreeNode root) {
         if (root == null) return 0;
         List<Integer> list = new ArrayList<Integer>();
-        sumNumbers(root, list, 0);
+        sumNumbers2(root, list, 0);
         int sum = 0;
         Iterator<Integer> iterator = list.iterator();
         while (iterator.hasNext()) {
@@ -39,15 +57,15 @@ public class Solution {
         return sum;
     }
 
-    public void sumNumbers(TreeNode root, List<Integer> list, int num) {
+    public void sumNumbers2(TreeNode root, List<Integer> list, int num) {
         if (root.left == null && root.right == null) {
             list.add(num*10+root.val);
         } else {
             int curNum = num*10+root.val;
             if (root.left != null)
-                sumNumbers(root.left, list, curNum);
+                sumNumbers2(root.left, list, curNum);
             if (root.right != null)
-                sumNumbers(root.right, list, curNum);
+                sumNumbers2(root.right, list, curNum);
         }
     }
 }
