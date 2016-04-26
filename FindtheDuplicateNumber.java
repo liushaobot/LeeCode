@@ -8,6 +8,8 @@ Your runtime complexity should be less than O(n2).
 There is only one duplicate number in the array, but it could be repeated more than once.
 
 https://segmentfault.com/a/1190000003817671
+找出链表中环的起点：
+http://blog.leanote.com/post/suex.bestwishes@gmail.com/%E6%89%BE%E5%87%BA%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%8E%AF%E7%9A%84%E8%B5%B7%E7%82%B9
 */
 public class Solution {
     public int findDuplicate(int[] nums) {
