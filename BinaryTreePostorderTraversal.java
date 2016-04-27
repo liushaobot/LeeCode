@@ -23,7 +23,7 @@ Note: Recursive solution is trivial, could you do it iteratively?
  * }
  */
 public class Solution {
-    public List<Integer> postorderTraversal(TreeNode root) {
+    public List<Integer> postorderTraversal1(TreeNode root) {//trick
         if (root == null)
             return new ArrayList<Integer>();
 
@@ -39,6 +39,33 @@ public class Solution {
             } else {
                 work = stack.pop();
                 work = work.left;
+            }
+        }
+
+        return result;
+    }
+    
+    public List<Integer> postorderTraversal2(TreeNode root) {//no trick
+        if (root == null)
+            return new ArrayList<Integer>();
+
+        List<Integer> result = new ArrayList<Integer>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+
+        TreeNode work = root, pre = null;
+        while (work != null || !stack.isEmpty()) {
+            while (work != null) {
+                stack.push(work);
+                work = work.left;
+            }
+            work = stack.peek();
+            if (work.right == null || work.right == pre) {
+                result.add(work.val);
+                pre = work;
+                stack.pop();
+                work = null;
+            } else {
+                work = work.right;
             }
         }
 
