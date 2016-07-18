@@ -32,4 +32,23 @@ public class Solution {
 
         return res;
     }
+
+    public List<Integer> topKFrequent2(int[] nums, int k) {
+        List<Integer> res = new ArrayList<Integer>();
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+
+        for (int num : nums) {
+            map.put(num, map.getOrDefault(num, 0)+1);
+        }
+        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<Map.Entry<Integer, Integer>>((a, b) -> a.getValue()-b.getValue());
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            pq.offer(entry);
+            if(pq.size() > k) pq.poll();
+        }
+
+        while(!pq.isEmpty()) {
+            res.add(0, pq.poll().getKey());
+        }
+        return res;
+    }
 }
