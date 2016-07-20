@@ -55,7 +55,7 @@ public class Solution {
     //Java D&C with Memoization
     public int maxCoins(int[] nums) {
         int[] balloons = new int[nums.length + 2];
-        int cnt = 1; //非零值的气球
+        int cnt = 1; //非零值的气球个数
         for (int num : nums) {
             if (num != 0) {
                 balloons[cnt++] = num;
@@ -82,7 +82,7 @@ public class Solution {
     //Java DP
     public int maxCoins(int[] nums) {
         int[] balloons = new int[nums.length+2];
-        int cnt = 1; //非零值的气球
+        int cnt = 1; //非零值的气球个数
         for (int num : nums) {
             if (num != 0) {
                 balloons[cnt++] = num;
