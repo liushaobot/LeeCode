@@ -18,7 +18,7 @@ Return 167
 */
 
 /*
-Be Naive First
+**Be Naive First**
 
 When I first get this problem, it is far from dynamic programming to me. I started with the most naive idea the backtracking.
 
@@ -28,7 +28,7 @@ Of course this is not the point to implement it. We need to identify the redunda
 
 Well, we can find that for any balloons left the maxCoins does not depends on the balloons already bursted. This indicate that we can use memorization (top down) or dynamic programming (bottom up) for all the cases from small numbers of balloon until n balloons. How many cases are there? For k balloons there are C(n, k) cases and for each case it need to scan the k balloons to compare. The sum is quite big still. It is better than O(n!) but worse than O(2^n).
 
-Better idea
+**Better idea**
 
 We then think can we apply the divide and conquer technique? After all there seems to be many self similar sub problems from the previous analysis.
 
@@ -45,7 +45,7 @@ OK. Think about n balloons if i is the last one to burst, what now?
 
 We can see that the balloons is again separated into 2 sections. But this time since the balloon i is the last balloon of all to burst, the left and right section now has well defined boundary and do not affect each other! Therefore we can do either recursive method with memoization or dp.
 
-Final
+**Final**
 
 Here comes the final solutions. Note that we put 2 balloons with 1 as boundaries and also burst all the zero balloons in the first round since they won't give any coins.
 The algorithm runs in O(n^3) which can be easily seen from the 3 loops in dp solution.
