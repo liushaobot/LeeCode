@@ -67,7 +67,7 @@ public class Solution {
                     array[l]=array[l]+(colIsBig?matrix[j][l]:matrix[l][j]);
                     val = val + array[l];
                     //use  TreeMap to binary search previous sum to get possible result
-                    Integer subres = set.ceiling(val-k);
+                    Integer subres = set.ceiling(val-k);//ceiling(E e) 方法用来返回在此设定为大于或等于给定的元素的最小元素，或null，如果不存在这样的元素。
                     if(null!=subres){
                         res=Math.max(res,val-subres);
                     }
