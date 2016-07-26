@@ -75,11 +75,11 @@ public class Solution {
         }
 
         public int find(int p) {
-            while(p != father[p]) {
-                father[p] = father[father[p]];
-                p = father[p];
-            }
-            return p;
+            while(p != father[p]) {            //if(p != father[p]) {
+                father[p] = father[father[p]]; //    father[p] = find(father[p]);
+                p = father[p];                 
+            }                                  //}
+            return p;                          //return father[p];
         }
 
         public void union(int p, int q) {
