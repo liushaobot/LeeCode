@@ -28,28 +28,28 @@ public class Solution {
     public static final int[][] dirs = {{-1, 0},{1, 0},{0, -1},{0, 1}};
     public int longestIncreasingPath(int[][] matrix) {
         if (matrix.length == 0) return 0;
-        int rows = matrix.length;
-        int cols = matrix[0].length;
-        int[][] cache = new int[rows][cols];
+
+        int[][] cache = new int[matrix.length][matrix[0].length];
         int result = Integer.MIN_VALUE;
-        for (int row = 0; row < rows; ++row) {
-            for (int col = 0; col < cols; ++col) {
-                result = Math.max(result, helper(matrix, cache, row, col, rows, cols));
+        for (int row = 0; row < matrix.length; ++row) {
+            for (int col = 0; col < matrix[0].length; ++col) {
+                result = Math.max(result, helper(matrix, cache, row, col));
             }
         }
 
         return result;
     }
 
-    public int helper(int[][] matrix, int[][] cache, int row, int col, int rows, int cols) {
+    public int helper(int[][] matrix, int[][] cache, int row, int col) {
         if (cache[row][col] != 0) return cache[row][col];
         int result = 1;
         for (int[] dir : dirs) {
             int x = row + dir[0], y = col + dir[1];
-            if(x < 0 || x >= rows || y < 0 || y >= cols || matrix[x][y] <= matrix[row][col]) continue;
-            int len = 1 + helper(matrix, cache, x, y, rows, cols);
+            if(x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length || matrix[x][y] <= matrix[row][col]) continue;
+            int len = 1 + helper(matrix, cache, x, y);
             result = Math.max(result, len);
         }
         cache[row][col] = result;
         return result;
     }
+}
