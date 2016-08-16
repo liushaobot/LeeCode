@@ -18,6 +18,7 @@ sell[i] = max(buy[i-1]+price, sell[i-1])
 public class Solution {
     public int maxProfit(int[] prices) {
         //https://discuss.leetcode.com/topic/30421/share-my-thinking-process
+        
         int sell = 0, prev_sell = 0, buy = Integer.MIN_VALUE, prev_buy;
         for (int price : prices) {
             prev_buy = buy;
