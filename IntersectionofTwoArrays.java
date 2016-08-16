@@ -11,6 +11,7 @@ The result can be in any order.
 
 public class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
+        //https://discuss.leetcode.com/topic/45685/three-java-solutions
         Set<Integer> set = new HashSet<>();
         Set<Integer> intersect = new HashSet<>();
         for (int num1 : nums1) {
